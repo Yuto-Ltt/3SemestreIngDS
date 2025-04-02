@@ -1,0 +1,39 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Definimos la función de la parábola
+def f(x):
+    return x**2 - 8*x + 9
+
+# Derivada de la función para la pendiente de la tangente
+def df(x):
+    return 2*x - 8
+
+# Punto donde queremos calcular la tangente
+x1 = 3
+y1 = f(x1)
+slope = df(x1)
+
+# Ecuación de la recta tangente: y - y1 = slope * (x - x1)
+def tangent_line(x):
+    return slope * (x - x1) + y1
+
+# Rango de valores para la gráfica
+x = np.linspace(0, 6, 100)
+y = f(x)
+tangent_y = tangent_line(x)
+
+# Graficar
+plt.figure(figsize=(10, 6))
+plt.plot(x, y, label=r'Parábola: $y = x^2 - 8x + 9$', color='blue')
+plt.plot(x, tangent_y, label='Recta Tangente', color='red', linestyle='--')
+plt.scatter([x1], [y1], color='green')  # Punto de la tangencia
+plt.text(x1, y1, f'({x1}, {y1})', fontsize=12, verticalalignment='bottom')
+plt.title('Parábola y su Recta Tangente')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.axhline(0, color='black',linewidth=2)
+plt.axvline(0, color='black',linewidth=2)
+plt.grid()
+plt.legend()
+plt.show()

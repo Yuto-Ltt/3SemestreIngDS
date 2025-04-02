@@ -1,0 +1,14 @@
+import sympy as sp
+
+# Definir la variable y la función
+x = sp.Symbol('x')
+y = x**(1/3) + x**(1/2)
+
+# Calcular la derivada
+dy_dx = sp.diff(y, x)
+
+# Evaluar en x = 64
+valor_derivada = dy_dx.subs(x, 64)
+
+print(f"Derivada: {dy_dx}")
+print(f"Valor de la derivada en x=64: {valor_derivada}")
